@@ -15,7 +15,7 @@ data_dir=../../dataset/pretrain_data
 neg_sample_dir=${data_dir}/negative_sample
 data=${data_dir}/vision_language_examples.tsv
 text_data=${data_dir}/text_examples.tsv
-image_data=${data_dir}/image_examples.tsv
+#image_data=${data_dir}/image_examples.tsv
 detection_data=${data_dir}/detection_examples.tsv
 
 selected_cols=0,1,2,3,4,5,6,7
@@ -50,7 +50,7 @@ save_path=./checkpoints
 python3 -m torch.distributed.launch --nproc_per_node=${GPUS_PER_NODE} --master_port=${MASTER_PORT} ../../train.py \
   $data \
   --text-data=${text_data} \
-  --image-data=${image_data} \
+# --image-data=${image_data} \
   --detection-data=${detection_data} \
   --selected-cols=${selected_cols} \
   --text-selected-cols=${text_selected_cols} \
